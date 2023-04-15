@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+depedencies/
+gh_venv/
+
+.idea
+*.zip

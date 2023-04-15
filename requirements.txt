@@ -1,0 +1,4 @@
+requests
+pyarrow
+fsspec
+s3fs
