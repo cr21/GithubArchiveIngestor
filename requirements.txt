@@ -2,3 +2,5 @@ requests
 pyarrow
 fsspec
 s3fs
+boto3
+pandas

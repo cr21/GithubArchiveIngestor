@@ -8,7 +8,7 @@ import os
 bucket_name = os.environ.get("BUCKET_NAME")
 folder = os.environ.get('FOLDER')
 job_id = os.environ.get("JOB_ID")
-
+print("+"*100)
 def ghactivity_ingest_to_s3():
     job_details = get_job_Details(job_id)
     job_start_time, next_file = get_next_file(job_details)
@@ -20,5 +20,5 @@ def ingest(event,context):
     job_run_details = ghactivity_ingest_to_s3()
     return  {
         "status":200,
-        "body":job_run_details
+        "Body":job_run_details
     }
