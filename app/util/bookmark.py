@@ -11,9 +11,11 @@ def get_job_Details(job_name):
     job_details = table.get_item(Key={'job_id':job_name})['Item']
     return job_details
 
+def get_job_Start_time():
+    return int(time.mktime(dt.now().timetuple()))
 
 def get_next_file(job_details):
-    job_start_time = int(time.mktime(dt.now().timetuple()))
+    job_start_time = get_job_Start_time()
     job_run_bookmark_details = job_details.get('job_run_bookmark_details')
     baseline_days = int(job_details['baseline_days'])
     if job_run_bookmark_details:

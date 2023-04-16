@@ -9,4 +9,4 @@ COPY app ${LAMBDA_TASK_ROOT}/app
 
 ENV PYTOHNPATH=${LAMBDA_TASK_ROOT}/app
 
-CMD ["app.ingest"]
+CMD ["app.lambda_transform"]
