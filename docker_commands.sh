@@ -1,9 +1,8 @@
+# START RUN THIS TO UPDATE CURRENT DOCKER IMAGE TO ECR
 export AWS_PROFILE=ghactivity
-aws ecr get-login-password \
-  --region us-east-1 | \
-  docker login \
-    --username AWS \
-    --password-stdin 008483831724.dkr.ecr.us-east-1.amazonaws.com
+
+
+docker build -t ghactivity_aws .
 
 aws ecr get-login-password \
   --region us-east-1 | \
@@ -11,8 +10,14 @@ aws ecr get-login-password \
     --username AWS \
     --password-stdin 008483831724.dkr.ecr.us-east-1.amazonaws.com
 
-docker build -t ghactivity_aws .
-docker build -t ghactivity_aws .
+
+
+
+
+docker tag ghactivity_aws:latest 008483831724.dkr.ecr.us-east-1.amazonaws.com/ghactivity_aws:latest
+docker push 008483831724.dkr.ecr.us-east-1.amazonaws.com/ghactivity_aws:latest
+
+# END RUN THIS TO UPDATE CURRENT DOCKER IMAGE TO ECR
 
 
 
@@ -24,9 +29,6 @@ docker run \
 
 
 
-
-docker tag ghactivity_aws:latest 008483831724.dkr.ecr.us-east-1.amazonaws.com/ghactivity_aws:latest
-docker push 008483831724.dkr.ecr.us-east-1.amazonaws.com/ghactivity_aws:latest
 
 
 docker run \
